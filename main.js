@@ -121,6 +121,7 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   }
 });
 
+
 // Event: Add a Book
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   // Prevent actual submit
@@ -149,6 +150,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     UI.clearFields();
   }
 });
+
+
 // Event: Remove a Book
 document.querySelector('#book-list').addEventListener('click', (e) => {
   // Remove book from UI
