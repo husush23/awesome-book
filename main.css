@@ -1,4 +1,51 @@
-body {
-  background-color: #fff;
-  color: black;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+#book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-group {
+  width: 400px;
+}
+input {
+  width: 300px;
+  padding-left: 20px;
+}
+.btn {
+  width: 100px;
+}
+
+table {
+  border: 2px solid #000;
+}
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+th {
+  height: 50px;
+  background-color: #ddd;
+}
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+td {
+  text-align: center;
+  padding-bottom: 8px;
+}
+a {
+  text-decoration: none;
+}
+.delete {
+  /* background-color: red; */
+  color: red;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* width: 25px;
+  height: 25px; */
 }
