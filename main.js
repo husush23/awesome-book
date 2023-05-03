@@ -45,7 +45,7 @@ class UI {
   static displayBooks() {
     const books = Store.getBooks();
 
-    books.forEach(book => UI.addBookToList(book));
+    books.forEach((book) => UI.addBookToList(book));
   }
 
   static addBookToList(book) {
@@ -91,7 +91,7 @@ class UI {
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 // Event: Add a Book
-document.querySelector('#book-form').addEventListener('submit', e => {
+document.querySelector('#book-form').addEventListener('submit', (e) => {
   // Prevent actual submit
   e.preventDefault();
 
@@ -122,7 +122,7 @@ document.querySelector('#book-form').addEventListener('submit', e => {
 });
 
 // Event: Add a Book
-document.querySelector('#book-form').addEventListener('submit', e => {
+document.querySelector('#book-form').addEventListener('submit', (e) => {
   // Prevent actual submit
   e.preventDefault();
 
@@ -151,7 +151,7 @@ document.querySelector('#book-form').addEventListener('submit', e => {
 });
 
 // Event: Remove a Book
-document.querySelector('#book-list').addEventListener('click', e => {
+document.querySelector('#book-list').addEventListener('click', (e) => {
   // Remove book from UI
   UI.deleteBook(e.target);
 
@@ -169,7 +169,7 @@ const toList = document.querySelector('table');
 const toAdd = document.querySelector('form');
 const toContact = document.querySelector('#contact');
 
-listBtn.addEventListener('click', e => {
+listBtn.addEventListener('click', (e) => {
   e.preventDefault();
   toList.classList.remove('d-none');
   toContact.classList.add('d-none');
@@ -177,14 +177,14 @@ listBtn.addEventListener('click', e => {
 });
 
 // Go to add list
-addBtn.addEventListener('click', e => {
+addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   toAdd.classList.remove('d-none');
   toList.classList.add('d-none');
   toContact.classList.add('d-none');
 });
 // Go to contactas
-contact.addEventListener('click', e => {
+contact.addEventListener('click', (e) => {
   e.preventDefault();
   toContact.classList.remove('d-none');
   toList.classList.add('d-none');
