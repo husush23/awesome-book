@@ -56,7 +56,7 @@ class UI {
     row.innerHTML = `
           <td>${book.title}</td>
           <td>${book.author}</td>
-          <td><a href="#" class="btn btn-danger btn-sm delete">Remove</a></td>
+          <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
         `;
 
     list.appendChild(row);
@@ -161,4 +161,34 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
 
   // Show success message
   UI.showAlert('Book Removed', 'success');
+});
+
+const listBtn = document.querySelector('.list');
+const addBtn = document.querySelector('.add-book');
+const contact = document.querySelector('.contact');
+
+const toList = document.querySelector('table');
+const toAdd = document.querySelector('form');
+const toContact = document.querySelector('#contact');
+
+listBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  toList.classList.remove('d-none');
+  toContact.classList.add('d-none');
+  toAdd.classList.add('d-none');
+});
+
+// Go to add list
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  toAdd.classList.remove('d-none');
+  toList.classList.add('d-none');
+  toContact.classList.add('d-none');
+});
+// Go to contactas
+contact.addEventListener('click', (e) => {
+  e.preventDefault();
+  toContact.classList.remove('d-none');
+  toList.classList.add('d-none');
+  toAdd.classList.add('d-none');
 });
