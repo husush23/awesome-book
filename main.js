@@ -56,7 +56,7 @@ class UI {
     row.innerHTML = `
           <td>${book.title}</td>
           <td>${book.author}</td>
-          <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+          <td><a href="#" class="btn btn-danger btn-sm delete text-white">X</a></td>
         `;
 
     list.appendChild(row);
@@ -121,6 +121,35 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   }
 });
 
+// Event: Add a Book
+document.querySelector('#book-form').addEventListener('submit', (e) => {
+  // Prevent actual submit
+  e.preventDefault();
+
+  // Get form values
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
+  const isbn = document.querySelector('#isbn').value;
+
+  // Validate
+  if (!title === '' || !author === '') {
+    // Instatiate book
+    const book = new Book(title, author, isbn);
+
+    // Add Book to UI
+    UI.addBookToList(book);
+
+    // Add book to store
+    Store.addBook(book);
+
+    // Show success message
+    UI.showAlert('Book Added', 'success');
+
+    // Clear fields
+    UI.clearFields();
+  }
+});
+
 // Event: Remove a Book
 document.querySelector('#book-list').addEventListener('click', (e) => {
   // Remove book from UI
@@ -131,4 +160,33 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
 
   // Show success message
   UI.showAlert('Book Removed', 'success');
+});
+const listBtn = document.querySelector('.list');
+const addBtn = document.querySelector('.add-book');
+const contact = document.querySelector('.contact');
+
+const toList = document.querySelector('table');
+const toAdd = document.querySelector('form');
+const toContact = document.querySelector('#contact');
+
+listBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  toList.classList.remove('d-none');
+  toContact.classList.add('d-none');
+  toAdd.classList.add('d-none');
+});
+
+// Go to add list
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  toAdd.classList.remove('d-none');
+  toList.classList.add('d-none');
+  toContact.classList.add('d-none');
+});
+// Go to contactas
+contact.addEventListener('click', (e) => {
+  e.preventDefault();
+  toContact.classList.remove('d-none');
+  toList.classList.add('d-none');
+  toAdd.classList.add('d-none');
 });
